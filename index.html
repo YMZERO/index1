@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#all{width: 74%; margin: 0 auto;}
+			#Clock{position:fixed;top:800px; left: 320px; font-size:72px ; font-family:"微软雅黑"; color: white;}
+			.u1{ list-style: none;}
+			a{text-decoration: none;}
+			.l1,.l2{ font-size: 30px;}
+			.l1 a:hover,.l2 a:hover{ background-color:dimgray;color: white;}
+			.l1 a,.l2 a{position: fixed;top:20px; font-family:"微软雅黑";}
+			.l1 a{left: 300px;color:gainsboro;}
+			.l2 a{left: 1450px;color:dimgray;}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<ul class="u1">
+				<li class="l1"><a href="#">About Me</a></li>
+				<li class="l2 "><a href="#">Some Piece</a></li>
+			</ul>
+			<img src="img/bg.jpg" style="width: 100%;" />
+		<div id="Clock"></div>
+		</div>
+		<script language="JavaScript">
+			function tick() {
+				var hours, minutes, seconds;
+				var intHours, intMinutes, intSeconds;
+				var today;
+				today = new Date();
+				intHours = today.getHours();
+				intMinutes = today.getMinutes();
+				intSeconds = today.getSeconds();
+				if(intHours == 0) {
+					hours = "00:";
+				} else if(intHours < 10) {
+					hours = "0" + intHours + ":";
+				} else {
+					hours = intHours + ":";
+				}
+				if(intMinutes < 10) {
+					minutes = "0" + intMinutes + ":";
+				} else {
+					minutes = intMinutes + ":";
+				}
+				if(intSeconds < 10) {
+					seconds = "0" + intSeconds + " ";
+				} else {
+					seconds = intSeconds + " ";
+				}
+				timeString = hours + minutes + seconds;
+				Clock.innerHTML = timeString;
+				window.setTimeout("tick();", 1000);
+			}
+			window.onload = tick;
+		</script>
+	</body>
+</html>
